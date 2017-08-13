@@ -2,8 +2,8 @@
 1. 格式
    一般是标签`<a><img /></a>`;
    `<a class="fancybox" href="1_b.jpg" data-fancybox-group="ga" title="Lorem ipsum dolor sit amet"><img src="1_s.jpg" alt="" /></a>`;
-   上面的a标签内 **data-fancybox-group**属性的值只要一样，就可以实现图片切换的效果，title默认显示在图片下面。
-   
+   上面的a标签内 **data-fancybox-group** 属性的值只要一样，就可以实现图片切换的效果，title默认显示在图片下面。
+
 2. 图片的简单样式处理
    <pre>
    $(".fancybox-effects-d").fancybox({
@@ -61,7 +61,7 @@ title	重写标题	字符串	null
 	- 可以使用直接执行ajax请求，但是需要注意的是ajax请求只能访问服务端的数据
 	`<li><a class="fancybox fancybox.ajax" href="ajax.txt">Ajax</a></li>`
 	- 打开另一个div **注意id 这是根据a标签内的href的id来确定**   
-	
+
 	<pre>
 	<li><a class="fancybox" href="#inline1" title="Lorem ipsum dolor sit amet">Inline</a></li>
 	<div id="inline1" style="width:400px;display: none;">
