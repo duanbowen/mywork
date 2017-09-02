@@ -1,4 +1,0 @@
-1。时刻谨记 text-align的属性特点， 更改文本的排列方式 left right center inherit(规定应该从父元素继承text-align属性的值)
-   justify 实现两端对齐文本效果
-   <div> <span>这里有一个效果，如果内容只占一行，则排列方式跟 外层的div的排列方向一样 text-align:right;如果需要换行时内容靠左 设置span text-align:left</span></div>
-2。vertical-align ：该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐
