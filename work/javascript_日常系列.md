@@ -12,7 +12,7 @@
     }
     </pre>
     上面的例子中 onclick事件先于 submit 触发，
-    并且执行了 return false ;阻止了submit的触发
+    并且执行了 return false ;阻止了submit的触发  
   3. div层级冒泡事件--事件穿透
 
     
