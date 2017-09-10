@@ -1,6 +1,7 @@
 # npm 常用命令 
 
-- npm install <- name ->  安装命令
+- npm install cnpm -g -registry https://registry.npm.taobao.org 使用国内淘宝镜像N
+- npm install <- name ->  安装命令 
 - npm install <- name -> -g 将包安装在全局
 - npm install <- name -> --save 安装包的同时，添加包版本到 package.json 文件中。
 - npm root 查看当前包的安装路径

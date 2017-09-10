@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span></span>
+    <input type="text" name="" id="" value="内容">
+
+    <script type="text/javascript">
+        /**
+                var obj = {};
+                obj.name = "obj "
+                Object.defineProperty(obj, 'name', {
+                    value: "update , no writeable", //设置为不可读
+                    configurable: true, //设置为 false ,表示不能从对象中删除,设置false之后，该对象不能再次被构造器defineProperty设置属性
+                    writable: false,
+                })
+                console.log(JSON.stringify(obj)); //{"name":"update , no writeable"}
+                obj.name = "123"; //报错
+                Object.defineProperty(obj,'name',{
+                    value:'123344',//Uncaught TypeError: Cannot redefine property: name
+                })
+             */
+        //vue demo 
+        var vue = {
+            name:'123'
+        }; 
+        // 数据劫持 劫持属性的 getter setter 方法 
+        Object.defineProperty(vue, 'name', {
+            //每次给 vue 对象赋值都会执行这个访问器的 set方法 ,修改属性name
+            set: (val) => {
+                document.querySelector('input[type="text"]').value = val;
+                document.querySelector('span').innerHTML = val;
+                this.value = val;
+                console.log(vue.name); //打印为 undefined
+            },
+            get: ()=>{
+                console.log("get " + this.value);
+                return this.value;
+            }
+        });
+        document.addEventListener('input', function (e) {
+            vue.name = e.target.value;
+            console.log(vue.name);
+        })
+       
+    </script>
+</body>
+
+</html>
