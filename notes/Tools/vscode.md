@@ -2,6 +2,7 @@
 
 - 命令
     - ctrl + F1 打开终端  (虽然是view in browser 插件预览 html 的命令 但是在其他非html 文件中能弹起 内置终端)  
+    - ctrl +` 打开终端
     - ctrl + shift + n  打开一个新窗口  
     - ctrl + shift +w  关闭窗口  
     - ctrl + N 新建文件  

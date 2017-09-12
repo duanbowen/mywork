@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    .box-shadow_ {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        box-shadow: -10px 20px 5px 10px #333333;
+    }
+
+    .box-shadow_inset {
+        margin-top: 50px;
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        box-shadow: 10px 5px 10px 0px #333333 inset
+    }
+
+    .box-shadow_out {
+        margin-left: 250px;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        box-shadow: 20px 20px 1px 4px #333333, -5px -5px 10px 5px #999999
+    }
+
+    .border-image_ {
+        margin-top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        border: 20px solid #333333;
+        border-image: url(http://img1.mukewang.com/56a1c6260001959301000100-200-200.jpg) 50 stretch
+    }
+
+    .linear-gradient_ {
+        width: 500px;
+        height: 200px;
+        background-image: linear-gradient(to left, green, pink, orange, red, blue, black)
+    }
+
+    @font-face {
+        font-family: "MOOC Font";
+        src: url("http://www.imooc.com/Amaranth-BoldItalic.otf");
+    }
+    .font-demo{
+        font-family: "MOOC Font";
+    }
+</style>
+
+<body>
+    <!-- box-shadow x轴(默认正数 上方) y轴 (默认正数 右边) 阴影边缘模糊半径（只有两边） 阴影向四周扩散的半径(四边) 阴影颜色 inset(内 阴影为div大小，div原始大小更改  默认外) -->
+    <div class="box-shadow_"></div>
+    <!-- inset 更改的就是 原始div背景色了 方向相反 -->
+    <div class="box-shadow_inset"></div>
+    <!-- 添加多个阴影 -->
+    <div class="box-shadow_out"></div>
+    <!-- repeat 平铺 图片不失真，但是重复平铺图片的时候很可能显示不全　； round　图片在重复的时候可能失真，但是全部显示的是完整图片;stretch 只显示一张图片，不会重复图片，但是多余的空间会被一张拉扯的图片填满 -->
+    <div class="border-image_"></div>
+
+    <!-- css3 颜色渐变 -->
+    <p>颜色渐变</p>
+    <div class="linear-gradient_"></div>
+
+    <p class="font-demo">@font-face 更改字体样式 font-family</p>
+</body>
+
+</html>
