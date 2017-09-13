@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 背景相关</title>
+    <style>
+        .background-origin_ {
+            width: 200px;
+            height: 200px;
+            border: 20px solid #ff0000;
+            padding: 20px;
+            background: green url(http://static.mukewang.com/static/img/logo_index.png) no-repeat;
+            background-origin: content-box;
+            background-clip: content-box;
+        }
+
+        .background-size_ {
+            width: 100px;
+            height: 100px;
+            background: url(http://static.mukewang.com/static/img/logo_index.png) no-repeat;
+            background-size: contain;
+        }
+        .background-image_{
+            width: 300px;
+            height: 300px;
+            background: url(http://img.mukewang.com/54cf2365000140e600740095.jpg) no-repeat left top contain,
+            url(http://static.mukewang.com/static/img/logo_index.png) no-repeat right bottom / 50% 20%
+        }
+    </style>
+</head>
+
+<body>
+    <p> background-origin : border-box | padding-box | content-box 对应 border边框 padding内边距 内容区(默认在内容区) background 必须设置为平铺不重复 no-repeat
+
+    </p>
+    <p> background-clip: border-box | padding-box | content-box 跟上面一样，但是这是裁切对应位置的图片,留下对应位置;</p>
+
+    <div class="background-origin_"></div>
+    <p> background-size: auto | 长度值 (200px 50px )只设置一边则另一边为 auto | cover 图片大小覆盖整个容器 | contain 图片等比缩放让容器覆盖 </p>
+    <div class="background-size_"></div>
+    <p>多张图片显示</p>
+    <div class="background-image_"></div>
+</body>
+
+</html>

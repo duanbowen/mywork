@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css 导航栏</title>
+
+    <style>
+        body {
+            background-color: #ebebeb;
+        }
+
+        #topbar {
+            width: 400px;
+            height: 50px;
+            /* text-align: center; */
+            line-height: 50px;
+            background-color: #f65f57;
+            /* font:0/50px  */
+            margin-top: 50px;
+            border-radius: 5px;
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+            color: #ffffff;
+            padding: 0 10px;
+            font-size: 13px;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+            transition: all 0.8s ease-in;
+            /* 设置元素的下滑线 以后可以不用再重新添加一个元素了 */
+            background:linear-gradient(to bottom,#dd2926,#a82724,#dd2926) no-repeat right / 1px 15px;
+        }
+
+        li:hover {
+            color: #ff0000;
+            transform: rotate(-180deg);
+        }
+        li:last-child{background:none;}
+    </style>
+</head>
+
+<body>
+    <p>transition: all 0.2s ease-in; 设置当前小动画 执行时间为 0.2秒</p>
+    <ul id="topbar">
+        <li>首页</li>
+        <li>关于我</li>
+        <li>博客</li>
+        <li>生活</li>
+        <li>资源</li>
+        <li>联系我</li>
+    </ul>
+
+</body>
+
+</html>
