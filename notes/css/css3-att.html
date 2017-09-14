@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3 属性选择器</title>
+</head>
+<style>
+     :root {
+        background-color: #efefef;
+    }
+
+    a[class^=red] {
+        background: red;
+    }
+
+    div {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #3c3c3c;
+    }
+
+    p[title$=as] {
+        background: green;
+    }
+
+    span[test*=am] {
+        background: pink;
+    }
+
+    p:not([class='own']) {
+        border: 1px solid #3c3c3c;
+    }
+
+    p:empty {
+        border: 1px solid green;
+    }
+
+    a[href$=mytarget] {
+        background: red;
+    }
+
+    #mytarget:target {
+        background-color: #fefefe;
+    }
+</style>
+
+<body>
+    <p>强大的属性选择器 属性值不能设置为数字</p>
+    <div class="mydiv">
+        <a href="##" class="redasdsadasdasd">我使用a[class^=red] 匹配所有a标签的class以red开头</a>
+        <p title="as">这是p标签 shiyong1 p[title$=12] 匹配所有的title 以12结尾的 p标签</p>
+        <span test="spams">这是 span标签的 test属性 使用 span[test*=am]匹配所有test标签包含 am的 span标签</span>
+    </div>
+    <p>:root 选择器 等同于 html元素</p>
+    <p class="own">not 否定选择器 除了我之外 所有元素被黑边框包裹 </p>
+    <p>empty 空元素对 `
+        <p></p>这种空标签设置属性` p:empty{display:none}</p>
+    <p></p>
+
+    <p>target 目标选择器 </p>
+    <p><a href="#mytarget">点击跳转到链接对象上 并设置链接对象的背景色</a></p>
+    <!-- <p id="mytarget"> 这是链接对象  无导航效果</p> -->
+    <div id="mytarget"> 这是链接对象 如果当前页面并无 溢出高度,则无导航效果</div>
+
+    <div id="test"> css 锚 URL 带有后面跟有锚名称 #，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)。</div>
+
+    <p>
+        :first-child or :last-child 选择器选中第一个 或 最后一个元素
+        :nth-child(n) 默认n 用来定位一个或多个子元素 从第一个子元素开始 
+        :nth-last-child(n) 从最后一个子元素开始
+        :nth-child(2n+1)
+        如何区分 子元素列表中的 不同元素标签 first-of-type
+        匹配的元素的父元素中仅有一个子元素，而且是一个唯一的子元素。
+        li:only-child{ background: orange; }
+    </p>
+</body>
+
+</html>
