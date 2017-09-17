@@ -69,11 +69,15 @@
          }else{  
              return arguments.callee(num-1)*num;             
         }
+        
      }
 
      var testfa = factorial;
-     factorial = null;
+     factorial = null; //将全局变量 factorial 置为空
+     console.log(testfa);
+     console.log(factorial);
      console.log(testfa(5)); 
+     
      //函数内 的return 不用依靠函数名去访问，因为factorial在变量对象列表中的value(指向堆内存的指针 null)已经不存在了,使用其函数名调用只能取到null
 
      /**
@@ -97,3 +101,26 @@
 
  });
 
+
+
+/**
+ * es6 this
+ */
+
+class Animal {
+    constructor() {
+        this.type = 'animal'
+    }
+    says(say) {
+        console.log(this);
+        setTimeout(function () {
+            console.log(this.type + ' says13123 ' + say)
+        }, 1000)
+        setTimeout(() => {
+            console.log(this.type + ' says ' + say)
+        }, 1000)
+    }
+}
+
+var animal = new Animal()
+animal.says('hi') 
