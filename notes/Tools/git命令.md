@@ -14,3 +14,33 @@
 - git branch -d dev 删除分支
 - git merge dev 合并dev分支到当前分区  一般当前分区为 master  
 - git clone xxx.git mydemo  指定git clone 在本地 mydemo目录下  
+
+
+### 快速搞定 本地文件push 到远程git服务器 ###
+1.git init
+
+#初始化本地仓库
+
+2.git remote add origin https://git.oschina.net/redArmy/springboot-swagger2.git(或则 git:git的地址)
+
+#关联本地仓库到远程仓库
+
+3. git add *
+
+#添加要提交的文件到暂存区
+
+4.git commit -m "init commint"
+
+#提交代码到文件控制仓库
+
+5.git fetch origin
+
+#将远程主机的更新，全部取回本地 
+
+6.git pull origin master    如果报错用这个 git pull origin master --allow-unrelated-histories
+
+#拉取远程分支代码到本地
+
+7.git push -u origin master:master
+
+#提交本地分支(master)代码到远程分支(master)
