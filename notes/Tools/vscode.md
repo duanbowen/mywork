@@ -17,7 +17,14 @@
     - jshint  在工程root目录下 新建文件 .jshintrc , 
     在其中添加 `{'esversion':6} `  
     表示当前工程目录中js文件，遵循 es6规范。
-
+    - emmet react jsx 设置
+    ``` 
+    //设置tab 触发 emmet
+    "emmet.triggerExpansionOnTab": true,
+    // 设置 emmet 支持环境 jsx
+     "emmet.syntaxProfiles": { 
+        "javascript": "jsx"
+    } 
 - 错误提示
     - The Vue Language Server server crashed 5 times in the last 3 minutes. The server will not be restarted.   
     在C:\Users\admin\.vscode\extensions\octref.vetur-0.9.7\client 目录下执行npm install 

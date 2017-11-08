@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react 组件思想</title>
+</head>
+<body>
+    
+    <div id="root">
+
+    </div>
+
+    <script type="text/javascript">
+        
+        // 仅仅就是创建一个div 标签
+        const createDOMFromString = (domString) => { 
+            const div = document.createElement('div')
+            div.innerHTML = domString 
+            return div 
+        }
+
+        // root 节点
+        const wrapper = document.querySelector('#root');
+
+        //父组件 
+        class Component {
+            constructor(props = {}){
+                this.props = props;
+            }
+
+            // 组件的状态改变时 先更新组件然后重新插入此节点
+            setState(state){
+                //只要状态改变就重新插入结构
+                const oldEl = this.el;
+                this.state = state;
+                this.el = this._renderDOM();
+
+                if(this.onStateChange){
+                    this.onStateChange(oldEl,this.el)
+                }
+
+            }
+
+            _renderDOM(){
+                console.log(this);
+                this.el = createDOMFromString(this.render());
+                // 如果子类有onclick方法
+                if(this.onClick){
+                    this.el.addEventListener('click',this.onClick.bind(this),false);
+                }
+                return this.el
+            }
+        }
+
+        class MyButton extends Component{
+            constructor(props){
+                super(props)
+                this.state = {isLiked : false}
+            }
+
+            onClick(){
+                this.setState({
+                    isLiked:!this.state.isLiked
+                })
+            }
+            render(){
+                return `
+                <button class='like-btn' style="background-color: ${this.props.bgColor}">
+                <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}
+                </span>
+                <span>👍</span>
+                </button>
+                `
+            }
+        }
+
+        // 
+        const mount = (component,wrapper) => {
+             wrapper.appendChild(component._renderDOM())
+             component.onStateChange = (oldEl,newEl)=>{
+                 wrapper.insertBefore(newEl,oldEl)
+                 wrapper.removeChild(oldEl)
+             }
+        }
+
+        mount(new MyButton({bgColor:'red'}),wrapper)
+        // class LikeButton {
+        //     constructor (){
+        //         this.state = { isLiked:false}
+        //     }
+
+        //     setState(state){
+
+        //         const oldEL = this.el;
+        //         this.state = state;
+        //         //console.log(this.state.isLiked.toString());
+        //         this.el = this.render()
+
+        //         //console.log(this.el);
+
+        //         if(this.onStateChange) this.onStateChange(oldEL,this.el)
+        //     }
+
+        //     changeLikeText(){
+                
+        //         //减少dom操作  重新生成新的dom结构替代
+
+        //         // const likeText = this.el.querySelector('.like-text')
+        //         // this.state.isLiked = !this.state.isLiked
+        //         // likeText.innerHTML = this.state.isLiked ? '取消' : '点赞'
+        //         this.setState({
+        //             isLiked:!this.state.isLiked
+        //         })
+
+        //     }
+        //     render(){
+        //         this.el = createDOMFromString(`<button class='like-button'>
+        //         <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
+        //         <span>👍</span>
+        //         </button>`)
+        //         this.el.addEventListener('click', this.changeLikeText.bind(this), false)
+        //         return this.el
+        //     }
+        // }
+
+        //   const likeButton = new LikeButton() 
+        // wrapper.appendChild(likeButton.render()) //第一次插入dom
+        
+        // // onstateChange函数实现在这里 
+
+        // likeButton.onStateChange = (oldEl, newEl) => { 
+        //     wrapper.insertBefore(newEl, oldEl) // 在oldEl 之前 插入新的元素 
+        //     wrapper.removeChild(oldEl) //删除旧的元素 
+        
+        // }
+
+    </script>
+</body>
+</html>

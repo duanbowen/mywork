@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>阴影</title>
 </head>
 <style type="text/css">
+    ul{
+        list-style: none;
+        margin:0;
+    }
     .box-shadow_ {
         width: 200px;
         height: 200px;
@@ -53,10 +57,87 @@
     .font-demo{
         font-family: "MOOC Font";
     }
+    .wrap{
+        height: 200px;
+        width:70%;
+        margin:50px auto;
+        background: #ffffff;
+    }
+    
+    .wrap h1{
+        font-size: 30px;
+        text-align: center;
+        line-height: 200px;
+    }
+    .effect{
+        box-shadow: 0px 1px 4px rgba(0,0,0,0.3),0 0 20px rgba(0,0,0,0.1) inset;
+        position: relative;
+    }
+    .effect:after,effect:before{
+        position: absolute;
+        content:'';
+        background: #f00;
+        top:50%;
+        bottom:0;
+        left: 20px;
+        right: 20px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        border-radius: 100px/10px;
+        z-index: -1;
+    }
+
+    .ul-box{
+        width:980px;
+        height: auto;
+        clear:both;
+        overflow: hidden;
+        margin:20px auto;
+    }
+    .ul-box li{
+        position:relative;
+        width:300px;
+        height: 210px;
+        float:left;
+        margin:20px 10px;
+        border:2px solid #efefef;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3), 0,0,60px rgba(0,0,0,0.1) inset;
+        background: #ffffff;
+    }
+    .ul-box li:before{
+        content:'';
+        position:absolute;
+        width:90%;
+        height: 80%;
+        left:20px ;
+        bottom:8px;
+        background: transparent;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        transform: rotate(-4deg) skew(-12deg);
+        z-index: -2;
+    }
+    .ul-box li:after{
+        content:'';
+        position:absolute;
+        width:90%;
+        height: 80%;
+        right:20px ;
+        bottom:8px;
+        background: transparent;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        transform: rotate(4deg) skew(12deg);
+        z-index: -1;
+    }
+    .ul-box li img{
+        display: block;
+        width:290px;
+        height: 200px;
+        margin:5px;
+    }
+
 </style>
 
 <body>
-    <!-- box-shadow x轴(默认正数 上方) y轴 (默认正数 右边) 阴影边缘模糊半径（只有两边） 阴影向四周扩散的半径(四边) 阴影颜色 inset(内 阴影为div大小，div原始大小更改  默认外) -->
+    box-shadow x轴(默认正数 上方) ,y轴 (默认正数 右边) ,阴影边缘模糊半径（只有两边） ,阴影向四周扩散的半径(四边), 阴影颜色 ,inset(内 阴影为div大小，div原始大小更改  默认外)
     <div class="box-shadow_"></div>
     <!-- inset 更改的就是 原始div背景色了 方向相反 text-shadow x y 模糊半径 颜色 rgba(0,0,0,.5)-->
     <div class="box-shadow_inset"></div>
@@ -70,6 +151,36 @@
     <div class="linear-gradient_"></div>
     <!-- @font-face 使用 服务器字体  -->
     <p class="font-demo">@font-face 更改字体样式 font-family</p>
+    
+   
+    <p>
+        box-shadow 设置 x y 轴为0 表示 四个方向都设置阴影效果  <br>
+        :after :before 在被选元素的<span style="color:red;">内容</span>的 后 前 插入内容(需要使用content属性来指定要插入的内容 )
+    </p>
+    <p>
+        div定位的两种方式：<br>
+        1. 给边框width height <br>
+        2. 给边框具体的定位 例如 top:50% bottom:0 left:10px right:10px 注意着这种方式必须给定边框的四边 
+    </p>
+    <p>
+         border-radius: 100px/10px; 表示水平方向半径为100px 垂直方向的半径为10px;<br>
+         参数顺序 border-radius ： top-left top-right bottom-left bottom-right <br>
+         top-left --- bottom-right 对角线 <br>
+         top-right --- bottom-left<br>
+
+         注意：设置曲线阴影 z-index:-1 的时候 wrap的背景色需要设置，不然显示after的曲线阴影样式 
+    </p>
+    <div class="wrap effect">
+        <h1>曲线阴影盒子</h1>
+    </div>
+   
+    <div class="wrap effect">
+        <h1>翘边阴影盒子 </h1>
+    </div>
+    <ul class="ul-box">
+        <li><img src="http://www.cuit.edu.cn/Images/Slide/2017_10_09_08_56_03_5603.jpg" alt="学校图片"></li>
+        
+    </ul>
 </body>
 
 </html>
