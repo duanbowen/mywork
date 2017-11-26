@@ -11,3 +11,8 @@
 - npm prune 及时更新package.json中已清除的文件 
 - npm ls 列出当前安装了得所有包
 - npm init 创建一个 package.json 文件
+
+
+### 常见问题 
+1. npm ERR! code EPERM errno -4048 
+ 解决办法 进入 C:\Users\admin\AppData\Roaming\npm \npm-cache 删除这两个文件夹下的内容，然后用管理员打开cmd 继续执行

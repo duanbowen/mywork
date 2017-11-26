@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    .m-box {
+        width: 16px;
+        height: 16px;
+        position: relative;
+        margin: 100px auto;
+        background: #00ed70;
+        /* border-radius: 50%; */
+    }
+
+    .m-duigou {
+        width: 14px;
+        height: 7px;
+        position: absolute;
+        left: 10%;
+        top: 25%;
+        transform: rotate(-50deg);
+        overflow: hidden;
+    }
+
+    .m-duigou::before {
+        content: "";
+        position: absolute;
+        background-color: #fff;
+        /* border-radius: 2px; */
+        width: 1.5px;
+        height: 7px;
+        left: 0;
+        /* animation:  0.5s linear 3s 1 both; */
+    }
+
+    .m-duigou::after {
+        content: "";
+        position: absolute;
+        background-color: #fff;
+        /* border-radius: 2px; */
+        width: 14px;
+        height: 1.5px;
+        bottom: 0;
+        /* animation:  0.5s linear 3.5s 1 both; */
+    }
+    /* 选择框 css */
+
+    .checkbox-wrap {
+        width: 30px;
+        position: relative;
+        margin: 0 auto;
+        top: 30%;
+        height: 40%;
+        background-color: white;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"] + label {
+        display: inline-block;
+        width: 30px;
+        margin-top: 10px;
+        margin-left: 5px;
+        text-align: left;
+        -webkit-box-sizing: border-box;
+    }
+
+    label.check {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #EEE;
+        vertical-align: middle;
+        /* -webkit-border-radius: 50%; */
+        margin-right: 5px;
+        -webkit-box-sizing: border-box;
+        -webkit-transition: background ease-in .5s
+    }
+    label.check > div{
+        position: absolute;
+        left: 10%;
+        top: 25%;
+    }
+
+    input[type="checkbox"]:checked+label {
+        background-color: rgb(53, 183, 111);
+        border: 1px #EEEEEE solid;
+        border-radius: 50%;
+    }
+
+</style>
+
+<body>
+    <a href="http://www.yilingsj.com/d/file/css3/2017-04-07/css3-animation-duigou.html">参考链接</a>
+    <div class="m-box">
+        <div class="m-duigou"></div>
+    </div>
+
+    <div class="checkbox-wrap">
+        <input type="checkbox" value="guangpan" name="choose" id="guangpan">
+        <label for="guangpan" class="check">
+<div class="m-duigou"></div>
+        </label>
+    </div>
+    
+</body>
+
+</html>
