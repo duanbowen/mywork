@@ -32,9 +32,16 @@
    mysql -u -root -p 
    密码是 123456    
    查看mysql 的socket 是否处于socket状态  sudo netstat -tap | grep mysql 
-   mysql 路径 在 /home/ubuntu/mysql 目录下
-- 安装 tomcat  
-  安装教程 https://www.cnblogs.com/xdp-gacl/p/4097608.html  
+   mysql 路径 在 /home/ubuntu/mysql 目录下   
+   开放远程连接 登录进mysql 
+   mysql -u root -p   
+   sudo /etc/init.d/mysql stop  
+   sudo /etc/init.d/mysql start   
+   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;   
+   netstat -an | grep 3306
+   设置mysql 远程权限 http://blog.csdn.net/langzi7758521/article/details/51391932     
+- 安装 tomcat 
+  安装教程 https://www.cnblogs.com/xdp-gacl/p/4097608.html  
   ubuntu 新建tomcat 目录  路径 /etc/tomcat  
   rz 本地上传tomcat 到Ubuntu 目录  /etc/tomcat  
   1. 解压 tar -zxvf apache-tomcat-7.0.82  
