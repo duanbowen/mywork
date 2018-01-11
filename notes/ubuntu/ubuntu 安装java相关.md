@@ -20,9 +20,11 @@
   export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib  
   export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin  
   ```  
-  使用source /etc/profile命令使刚才配置的信息生效，
-
-- 安装MySQL   
+  使用source /etc/profile命令使刚才配置的信息生效   
+  查看 端口  ``` ps -ef|grep 8080 ```  查看服务 ``` ps -ef|grep tomcat```  
+  查看tomcat 状态 在tomcat logs 目录下 执行 ``` tail -f catalina.out ```
+  
+- 安装MySQL   
   安装教程 http://www.linuxidc.com/Linux/2016-07/133128.htm  
    1. sudo apt-get install mysql-server  
    2. apt-get isntall mysql-client  
