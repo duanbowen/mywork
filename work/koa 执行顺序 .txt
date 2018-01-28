@@ -1,0 +1,10 @@
+generator 函数 
+
+fucntion * test(){congole.log('test')}
+1.实质上是一个管理状态的机器。test() ,并不会执行clg操作，var test = test().next()才会
+
+2. 内部状态管理 使用关键字 yeild yeild* 管理 
+
+3. yeild 后面紧跟的是一个普通函数 yeild * 后面紧跟的是一个状态机函数 
+
+4. yeild 相当于 return ,但是generator函数 可以拥有多个 yeild，普通函数只能拥有实质上的一个return

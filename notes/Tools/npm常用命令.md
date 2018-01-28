@@ -16,3 +16,15 @@
 ### 常见问题 
 1. npm ERR! code EPERM errno -4048 
  解决办法 进入 C:\Users\admin\AppData\Roaming\npm \npm-cache 删除这两个文件夹下的内容，然后用管理员打开cmd 继续执行
+
+2. connect timeout 或者是yarn 报错说网络有问题   
+可能原因是因为 设置了代理，而你当前的ip地址不能被代理  
+npm config delete proxy  
+yarn config delete proxy  
+
+3. 如何切换npm/yarn 的镜像源  
+npm get registry   查看当前镜像地址   
+切换淘宝镜像  
+```npm config set registry http://registry.npm.taobao.org/```   
+切换回默认镜像  
+```npm config set registry https://registry.npmjs.org/``` 
