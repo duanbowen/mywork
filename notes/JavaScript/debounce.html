@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button onclick="debounce()">亲自试一试</button>
+        <ul id="myList">
+        </ul>
+    <script>
+        var debounce = function(action, delay) {
+        var timer = null;
+        return function() {
+            var self = this, 
+                args = arguments;
+            console.log(timer);
+                
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                action.apply(self, args)
+            }, delay);
+        }
+    }
+
+    // example
+    function resizeHandler() {
+        console.log("resize");
+    }
+
+    window.onresize = debounce(resizeHandler, 300);
+    </script>
+</body>
+</html>
