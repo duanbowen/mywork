@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本省略号</title>
+    <link rel="stylesheet" href="./resource/css/style.css">
+    <style>
+        .mywrap{
+            height: 60px;
+            line-height: 30px;
+            overflow: hidden;
+        }
+        .mywrap::before {
+            float: left;
+            width: 5px;
+            content: '';
+            height: 60px;
+        }
+
+        /* .mywrap ::after{ */
+        .mywrap::after{
+            content: "after";
+            float: right;
+            display: block;
+            position: relative;
+            top: -30px;
+            left: 100%;
+            width: 3em;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            content: "...";
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+            padding-right: 5px;
+            margin-left: -3em;
+        }
+        .mywrap .mytext {
+            float: right;
+            margin-left: -5px;
+            width: 100%;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <p>本内容是实现
+        <a href="https://github.com/happylindz/blog/issues/12">这篇文章</a>
+        提出的float 实现多行文本截段
+    </p>
+    <div class="wrap">
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos 
+            labore sit vel itaque delectus atque quos magnam assumenda quod architecto perspiciatis animi.
+        </div>
+    </div>
+    <div class="mywrap">
+        <div class="mytext">爱冰淇淋，爱巧克力，爱云彩，爱天空，爱自己，爱家人，才能爱国家。
+            愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光，
+            就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。</div>
+    </div>
+</body>
+</html>

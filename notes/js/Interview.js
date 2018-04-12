@@ -1,3 +1,5 @@
+////// typeof 所有引用类型为 object
+
 let s = "12";
 let b = true;
 let i = 22;

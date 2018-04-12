@@ -1,10 +1,8 @@
 //当页面加载状态改变的时候执行这个方法.
 document.onreadystatechange = loadingChange;
-
 function loadingChange() {
     //当页面加载状态为完全结束时进入
     if (document.readyState == "complete") {
-
         locateMask(document.querySelector('.original-pic'), document.querySelector('.mask'), document.querySelector('.zoomin-pic'))
     }
 }
