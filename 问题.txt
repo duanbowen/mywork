@@ -1,0 +1,74 @@
+﻿1.js replace 函数 
+  var str=a b b b b b c b ;
+ 
+  str.replace(' ',''); 这样只能匹配到第一个空格 
+  正则表达式  /g 表示全局匹配 
+   str.replace('/\s+/g','');
+
+
+2.node pre-commit 模块解决 pull request 校验问题
+ .安装
+ yarn install pre-commit --save-dev
+ 在package中添加 pre-commit 入口
+ {
+  "scripts": {
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore"
+  },
+  "pre-commit": [ "lint" ],********************这里添加lint校验
+  "devDependencies": {
+    "eslint": "^2.12.0",
+    "pre-commit": "^1.1.3"
+  }
+}
+ git commit -m"强制提交" --no-verify 
+
+// 2017-12-27 
+5. 截取固定长度字符串 这里截取前6个 
+ slice(0,5)； 0代表起始位置 5 代表结束位置， 有一个问题就是 如果第一次输入框有7个字符，
+ 那么第一次截取到的数字是前6位, 如果此时再输入一个数字 那么slice 截取到的数字为前5位
+
+ substr(1,6) 1是从第几个开始截取，6代表截取的长度 没有slice的问题。
+
+// 2017-12-29
+6.JSON对象的转换问题 
+  . JSON.stringify() 将一个值转换为一个JSON字符串
+  . JSON.parse() 将一个json字符串转换为 对象或者数组 
+  . 转换字符串为对象的另一种方式 JSONObject = (new Function('return ' + JSONObject))();
+  . 注意点: 被转换的字符串的key 只能用 双引号或者不写引号的方式
+ 
+7. lint 错误 error Expected linebreaks to be 'LF' but found 'CRLF' linebreak-style   
+   解决办法 设置为 windows
+    "rules": {
+      "linebreak-style": [
+      "error",
+      "windows"
+    ]
+   }
+   直接忽略不同环境
+   "linebreak-style": 0 
+
+8. git clone 出错 
+   fatal: The remote end hung up unexpectedlyMiB | 141.00 KiB/s
+   fatal: early EOF
+   fatal: index-pack failed
+   
+   git clone url --depth  1 //depth用于指定克隆深度，为1即表示只克隆最近一次commit.  
+   git clone --depth=1 git://someserver/somerepo  
+    
+   // 增大缓存 git 缓存
+   git config --global pack.packSizeLimit 50m
+   git config --global pack.windowMemory 50m
+   git config --global core.compression 9 // git config --global core.compression -1 
+
+   // 另一种方式  (按步骤执行，如果报错就跳过当前步骤)
+   git config --global core.compression 0  
+   git clone --depth 1 <repo_URI>  
+   git fetch --unshallow  
+   git fetch --depth=2147483647  
+   git pull --all  
+   https://stackoverflow.com/questions/21277806/fatal-early-eof-fatal-index-pack-failed
+
+9.  npm set config registry http://10.17.2.24:4873/
+   npm --registry http://10.17.2.24:4873/ info underscore 
+
+

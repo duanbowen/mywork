@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>custom radio</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .content{
+            height: 100%;
+            padding: 100px;
+            border: 10px solid #2baf36;
+        }
+
+        .labelCheckbox{
+            position: relative;
+            background: #3e3e3e;
+        }
+        input[type=checkbox] {
+            display: none;
+        }
+        input[type=checkbox]:checked + .checkbox:before {
+            content: '';
+            display: inline-block;
+            width: 60%;
+            height: 30%;
+            border: 2px solid #2baf36;
+            border-width:0 0 2px 2px;
+            /* margin: 3px; */
+            position: absolute;
+            top: 63%;
+            left: 50%;
+            transform: translate(-50%, -60%) rotate(-45deg);
+            /* transform: translate(50%, 25%); */
+        }
+        .checkbox{
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px so
+            lid #3e3e3e;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <label class="labelCheckbox" for="checkbox-id">
+            <input type="checkbox" name="custom-radio" id="checkbox-id">
+            <span class="checkbox" />
+        </label>
+        <pre>
+            主要思路:   
+            1. 使用了label的for属性，用于绑定input, 如果不使用label,那么只能在点击input位置时，checkbox才会反应，绑定之后，点击label也会反应。
+            2. input[type=checkbox]:checked + .checkbox:before ， input点击时触发事件，然后绘制 span的before块，用于显示勾的样式。
+        </pre>
+    </div>
+</body>
+</html>
